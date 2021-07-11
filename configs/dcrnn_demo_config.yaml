@@ -1,0 +1,38 @@
+base_dir: ./results
+data:
+  batch_size: 32
+  dataset_dir: ./MRI_data/training_samples
+  graph_filename: ./MRI_data/SC_matrix/artificial_SC_matrix.npy
+  test_batch_size: 32
+  val_batch_size: 32
+log_level: INFO
+model:
+  cl_decay_steps: 600
+  filter_type: random_walk
+  horizon: 30
+  input_dim: 1
+  l1_decay: 0
+  max_diffusion_step: 2
+  num_nodes: 90
+  num_rnn_layers: 2
+  output_dim: 1
+  rnn_units: 64
+  seq_len: 30
+  use_curriculum_learning: true
+train:
+  base_lr: 0.1
+  dropout: 0
+  epoch: 0
+  epochs: 70
+  epsilon: 0.001
+  lr_decay_ratio: 0.1
+  max_grad_norm: 5
+  max_to_keep: 10
+  min_learning_rate: 2.0e-06
+  optimizer: adam
+  patience: 10
+  steps:
+  - 20
+  - 40
+  - 60
+  test_every_n_epochs: 5
