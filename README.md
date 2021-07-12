@@ -14,6 +14,11 @@ Y. Li, R. Yu, C. Shahabi & Y. Liu, [Diffusion Convolutional Recurrent Neural Net
 
 ## Requirements
 
+- scipy>=0.19.0
+- numpy>=1.12.1
+- pyaml
+- tensorflow=1.xx
+
 ## Run demo version
 
 A short demo version is included in this repository, which can serve as a template to process your own MRI data. Artificial fMRI data is provided in the directory ``` MRI_data/fMRI_sessions/ ``` and the artificial timecourses have the shape ``` (nodes,time) ```. 
@@ -33,9 +38,9 @@ python dcrnn_for_brain_connectivity_train.py --config_filename="./configs/dcrnn_
 
 ## Data availability
 
-Preprocessed functional and structural MRI data from Human Connectome Project data is publicly available under https://db.humanconnectome.org.
+Preprocessed functional and structural MRI data from Human Connectome Project data is publicly available under: https://db.humanconnectome.org.
 
-A tutorial on white matter tracktograph for creating a SC matrix is available unter https://osf.io/fkyht/. 
+A tutorial on white matter tracktograph for creating a SC matrix is available under: https://osf.io/fkyht/. 
 
 ## Citations
 
@@ -43,13 +48,13 @@ If you apply this graph neural network model for MRI analysis, please cite the f
 
 ```
 @article{Wein2021,
-author = {Wein, Simon and Malloni, Wilhelm and Tomé, Ana and Frank, S. and Henze, Gina-Isabelle and Wüst, S. and Greenlee, Mark and Lang, Elmar},
-year = {2021},
-month = {04},
-title = {A graph neural network framework for causal inference in brain networks},
-volume = {11},
-journal = {Scientific Reports},
-doi = {10.1038/s41598-021-87411-8}
+  title = {A graph neural network framework for causal inference in brain networks},
+  author = {Wein, Simon and Malloni, Wilhelm and Tomé, Ana and Frank, S. and Henze, Gina-Isabelle and Wüst, S. and Greenlee, Mark and Lang, Elmar},
+  year = {2021},
+  month = {04},
+  volume = {11},
+  journal = {Scientific Reports},
+  doi = {10.1038/s41598-021-87411-8}
 }
 ```
 
