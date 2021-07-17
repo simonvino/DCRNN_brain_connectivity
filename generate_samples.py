@@ -1,4 +1,3 @@
-#import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -11,7 +10,7 @@ def generate_train_val_test(
     ):
     
     '''
-    Generate train, validation and test data samples from fMRI timecourses.
+    Generate train, validation and test data samples from multiple fMRI session timecourses.
     
     input_dir: directory with structure input_dir/Session_{nSess}/
                with nSess running from 1 to NSess
@@ -26,7 +25,7 @@ def generate_train_val_test(
     y: (num_samples, output_length, num_nodes, feature_dim)
     '''
     
-    Sub_list = list(range(1, NSub+1))  # list with subjects from 1 to NSub        
+    Sub_list = list(range(1, NSub+1))     
     Sess_list = list(range(1, NSess+1))
 
     # Define offsets.
@@ -36,30 +35,30 @@ def generate_train_val_test(
     y_offsets = np.sort(np.arange(1, (output_horizon+1), 1))
 
     x_train, y_train, x_val, y_val, x_test, y_test = [], [], [], [], [], [] 
-    for nSess in Sess_list:  # Iterate through sessions
+    for nSess in Sess_list:  # Iterate through sessions.
         sessiondir = 'session_' + str(nSess) + '/'
-        for nSub in Sub_list:  # Iterate through subjects
+        for nSub in Sub_list:  # Iterate through subjects.
             subfile = input_filename + str(nSub) +'.txt'
             filename =  input_dir + sessiondir + subfile
             print("Load: " + filename)
             timeseries = np.loadtxt(filename, delimiter=",", dtype='float32')
-            if scaling == 'n':  # scale values between 0 and 1              
+            if scaling == 'n':  # Scale values between 0 and 1.              
                 timeseries = (timeseries - timeseries.min().min())/(timeseries.max().max() - timeseries.min().min())
-            elif scaling == 'z':  # standardize values
+            elif scaling == 'z':  # Standardize values.
                 timeseries = timeseries - timeseries.mean()
                 timeseries = timeseries / timeseries.std()
             else: 
                 pass
-            timeseries = timeseries.T  # Now has shape samples x ROIs
+            timeseries = timeseries.T  # Now has shape samples x ROIs.
             num_samples, num_nodes = timeseries.shape  
             
-            if NROIs:  # Select only first nodes                
+            if NROIs:  # Select only first few nodes.                
                 timeseries = timeseries[:,:NROIs]
 
             # Load data, t is the index of the last observation.
             min_t = abs(min(x_offsets))
             max_t = abs(num_samples - abs(max(y_offsets)))  # Exclusive
-            x, y = [], []  # initialize as list again
+            x, y = [], []
             for t in range(min_t, max_t):
                 x_t = timeseries[t + x_offsets, ...]
                 y_t = timeseries[t + y_offsets, ...]
