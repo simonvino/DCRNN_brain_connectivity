@@ -22,7 +22,7 @@ Y. Li, R. Yu, C. Shahabi & Y. Liu, [Diffusion Convolutional Recurrent Neural Net
 ## Run demo version
 
 A short demo version is included in this repository, which can serve as a template to process your own MRI data. Artificial fMRI data is provided in the directory ``` MRI_data/fMRI_sessions/ ``` and the artificial timecourses have the shape ``` (nodes,time) ```. 
-The adjacency matrix in form of the structural connectivity (SC) between brain regions can be stored in ``` MRI_data/SC_matrix/ ``` and an artificial SC matrix with shape ``` (nodes,nodes) ``` is also provided in this demo version.
+The adjacency matrix in form of the structural connectivity (SC) between brain regions can be stored in ``` MRI_data/SC_matrix/ ```. An artificial SC matrix with shape ``` (nodes,nodes) ``` is also provided in this demo version.
 
 The training samples can be generated from the subject session data by running: 
 
@@ -40,7 +40,7 @@ python dcrnn_for_brain_connectivity_train.py --config_filename="./configs/dcrnn_
 
 Preprocessed functional and structural MRI data from Human Connectome Project data is publicly available under: https://db.humanconnectome.org.
 
-A tutorial on white matter tracktograph for creating a SC matrix is available under: https://osf.io/fkyht/. 
+A nice tutorial on white matter tracktograph for creating a SC matrix is available under: https://osf.io/fkyht/. 
 
 ## Citations
 
@@ -58,7 +58,7 @@ If you apply this graph neural network model for MRI analysis, please cite the f
 }
 ```
 
-The model architecture was originally proposed by Li et al.:
+And the model architecture was originally proposed by Li et al.:
 
 ```
 @inproceedings{li2018dcrnn_traffic,
