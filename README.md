@@ -38,9 +38,9 @@ python dcrnn_for_brain_connectivity_train.py --config_filename="./configs/dcrnn_
 
 ## Data availability
 
-Preprocessed functional and structural MRI data from Human Connectome Project data is publicly available under: https://db.humanconnectome.org.
+Preprocessed fMRI and DTI data from Human Connectome Project data is publicly available under: https://db.humanconnectome.org.
 
-A nice tutorial on white matter tracktograph for creating a SC matrix is available under: https://osf.io/fkyht/. 
+A nice tutorial on white matter tracktography for creating a SC matrix is available under: https://osf.io/fkyht/. 
 
 ## Citations
 
