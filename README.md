@@ -33,7 +33,7 @@ python generate_samples.py --input_dir=./MRI_data/fMRI_sessions/ --output_dir=./
 The model can then be trained by running:
 
 ```
-python dcrnn_for_brain_connectivity_train.py --config_filename="./configs/dcrnn_demo_config.yaml" --save_predictions=True
+python dcrnn_for_brain_connectivity_train.py --config_filename=./configs/dcrnn_demo_config.yaml --save_predictions=True
 ```
 
 ## Data availability
