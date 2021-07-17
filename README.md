@@ -1,6 +1,6 @@
 # A graph neural network framework for causal inference in brain networks
 
-<img src="https://github.com/simonvino/DCRNN_for_brain_connectivity/blob/main/figures/DCRNN.png" width="800">
+<img src="https://github.com/simonvino/DCRNN_brain_connectivity/blob/main/figures/DCRNN.png" width="800">
 
 
 This is the implementation of the graph neural network model used in our paper:
