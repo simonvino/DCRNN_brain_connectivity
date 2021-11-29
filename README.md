@@ -12,12 +12,19 @@ The implementation is based on the [DCRNN](https://github.com/liyaguang/DCRNN) p
 
 Y. Li, R. Yu, C. Shahabi & Y. Liu, [Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting](https://arxiv.org/abs/1707.01926), ICLR 2018.
 
+
 ## Requirements
 
 - scipy>=0.19.0
 - numpy>=1.12.1
 - pyaml
 - tensorflow=1.xx
+
+Also a conda *environment.yml* file is provided. The environment can be installed with:
+
+```
+conda env create -f environment.yml
+```
 
 ## Run demo version
 
@@ -35,6 +42,11 @@ The model can then be trained by running:
 ```
 python dcrnn_for_brain_connectivity_train.py --config_filename=./configs/dcrnn_demo_config.yaml --save_predictions=True
 ```
+
+A Jupyter Notebook version is provided, which can be directly run in Google Colab with:
+
+> https://colab.research.google.com/github/simonvino/DCRNN_brain_connectivity/blob/main/dcrnn_for_brain_connectivity_colab_demo.ipynb
+
 
 ## Data availability
 
@@ -68,3 +80,8 @@ And the model architecture was originally proposed by Li et al.:
   year={2018}
 }
 ```
+
+## Other implementations
+
+A PyTorch implementation of the DCRNN model can be found at: https://github.com/chnsh/DCRNN_PyTorch
+
