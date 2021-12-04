@@ -6,7 +6,7 @@ import argparse
 
 def generate_train_val_test(
     input_dir, input_filename, output_dir, NSess, NSub, input_horizon=30, output_horizon=30, 
-    scaling='n', save_data=True, train_prop=0.8, test_prop=0.1, NROIs=None,
+    scaling='n', save_data=True, train_prop=0.8, test_prop=0.1, NROIs=None, perturbations=None,
     ):
     
     '''
@@ -20,6 +20,7 @@ def generate_train_val_test(
                     expected dimension: ROIs x Samples
     output_dir: directory where train.npz, val.npz, test.npz are saved to
                 containing model inputs x and tragets y
+    ROIs_pertb: list of ROIs with perturbation, starts from 1
                 
     x: (num_samples, input_length, num_nodes, feature_dim)
     y: (num_samples, output_length, num_nodes, feature_dim)
@@ -92,6 +93,18 @@ def generate_train_val_test(
     y_val = np.concatenate(y_val, axis=0)
     x_test = np.concatenate(x_test, axis=0)
     y_test = np.concatenate(y_test, axis=0)
+    
+    # Induce perturbation in some brain regions to generate second dataset for the perturbation experiment.
+    if perturbations != None:
+        sample_mean = x_train.mean()
+        for n_ROI_pertb in perturbations:
+            x_test[:,:,(int(n_ROI_pertb)-1),:] = sample_mean  # n_ROI_pertb starts counting from 1.
+            
+        print('ROIs with perturbation: #{}'.format(', #'.join(map(str,perturbations))))
+        output_dir = output_dir + 'dataset_perturbation_ROI{}/'.format('_'.join(map(str,perturbations)))
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)  # Create directory where data with perturbations is stored in.
+
 
     print('### SAMPLES ###')
     print('Using {} sessions from {} subjects.'.format(len(Sess_list), len(Sub_list)))    
@@ -120,7 +133,8 @@ def generate_train_val_test(
 def main(args):
     print("Generating training data.")
     generate_train_val_test(input_dir=args.input_dir, input_filename=args.input_filename, output_dir=args.output_dir, 
-                            NSess=args.NSess, NSub=args.NSub, input_horizon=args.input_horizon, output_horizon=args.output_horizon)
+                            NSess=args.NSess, NSub=args.NSub, input_horizon=args.input_horizon, output_horizon=args.output_horizon,
+                            perturbations=args.perturbations)
 
 
 if __name__ == "__main__":
@@ -146,5 +160,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output_horizon", type=int, default="30", help="Number of timesteps for model forecasting horizon."
     )     
+    parser.add_argument(
+        "--perturbations", '--list', nargs='+', default=None, help="List of ROIs with perturbation."
+    )      
     args = parser.parse_args()
     main(args)

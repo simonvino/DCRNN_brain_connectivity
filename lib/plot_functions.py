@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import math
 
 
-def plot_predictions(log_dir, dataset_dir, NROI=[1, 15], NSample=0, save_figure=True):
+def plot_predictions(log_dir,dataset_dir, output_name='outputs',  NROI=[1, 15], NSample=0, save_figure=True):
     '''
     Visualize model predictions. 
     
@@ -14,7 +14,7 @@ def plot_predictions(log_dir, dataset_dir, NROI=[1, 15], NSample=0, save_figure=
     '''
 
     test_data = np.load(dataset_dir + '/test.npz')
-    outputs = np.load(log_dir + 'outputs.npz')
+    outputs = np.load(log_dir + output_name + '.npz')
     outputs_predicitons = outputs['predictions'].transpose((1,0,2))  # To have shape (samples, time, ROI)
     outputs_groundtruth = outputs['groundtruth'].transpose((1,0,2))
     
@@ -56,4 +56,4 @@ def plot_predictions(log_dir, dataset_dir, NROI=[1, 15], NSample=0, save_figure=
 
     if save_figure:
         print('Save figure in: ', log_dir)  
-        plt.savefig(log_dir + figurename + '.png', dpi=100)
+        plt.savefig(log_dir + figurename + '_' + output_name + '.png', dpi=100)
