@@ -20,7 +20,7 @@ def generate_train_val_test(
                     expected dimension: ROIs x Samples
     output_dir: directory where train.npz, val.npz, test.npz are saved to
                 containing model inputs x and tragets y
-    ROIs_pertb: list of ROIs with perturbation, starts from 1
+    perturbations: list of ROIs with perturbation, starts from 1
                 
     x: (num_samples, input_length, num_nodes, feature_dim)
     y: (num_samples, output_length, num_nodes, feature_dim)
