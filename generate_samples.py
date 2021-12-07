@@ -37,7 +37,7 @@ def generate_train_val_test(
 
     x_train, y_train, x_val, y_val, x_test, y_test = [], [], [], [], [], [] 
     for nSess in Sess_list:  # Iterate through sessions.
-        sessiondir = 'session_' + str(nSess) + '/'
+        sessiondir = '/session_' + str(nSess) + '/'
         for nSub in Sub_list:  # Iterate through subjects.
             subfile = input_filename + str(nSub) +'.txt'
             filename =  input_dir + sessiondir + subfile
@@ -101,7 +101,7 @@ def generate_train_val_test(
             x_test[:,:,(int(n_ROI_pertb)-1),:] = sample_mean  # n_ROI_pertb starts counting from 1.
             
         print('ROIs with perturbation: #{}'.format(', #'.join(map(str,perturbations))))
-        output_dir = output_dir + 'dataset_perturbation_ROI{}/'.format('_'.join(map(str,perturbations)))
+        output_dir = output_dir + '/dataset_perturbation_ROI{}/'.format('_'.join(map(str,perturbations)))
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)  # Create directory where data with perturbations is stored in.
 
