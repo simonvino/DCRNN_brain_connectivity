@@ -1,16 +1,24 @@
-# A graph neural network framework for causal inference in brain networks
+# Diffusion convolution recurrent neural network for brain network analysis
 
 <img src="https://github.com/simonvino/DCRNN_brain_connectivity/blob/main/figures/DCRNN.png" width="800">
 
 
 This is the implementation of the graph neural network model used in our paper:
 
-S. Wein, W. M. Malloni, A. M. Tomé, S. M. Frank, G. -I. Henze, S. Wüst, M. W. Greenlee & E. W. Lang,
+> S. Wein, W. M. Malloni, A. M. Tomé, S. M. Frank, G. -I. Henze, S. Wüst, M. W. Greenlee & E. W. Lang,
 [A graph neural network framework for causal inference in brain networks](https://www.nature.com/articles/s41598-021-87411-8), Scientific Reports 11, 8061 (2021).
+
 
 The implementation is based on the [DCRNN](https://github.com/liyaguang/DCRNN) proposed by:
 
-Y. Li, R. Yu, C. Shahabi & Y. Liu, [Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting](https://arxiv.org/abs/1707.01926), ICLR 2018.
+> Y. Li, R. Yu, C. Shahabi & Y. Liu, [Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting](https://arxiv.org/abs/1707.01926), ICLR 2018.
+
+
+This model was also used in our recent manuscript:
+
+> S. Wein , A. Schüller, A. M. Tome, W. M. Malloni, M. W. Greenlee, and E. W.
+Lang,
+[Modeling Spatio-Temporal Dynamics in Brain Networks: A Comparison of Graph Neural Network Architectures](https://arxiv.org/abs/2112.04266).
 
 
 ## Requirements
@@ -84,4 +92,6 @@ And the model architecture was originally proposed by Li et al.:
 ## Other implementations
 
 A PyTorch implementation of the DCRNN model can be found at: https://github.com/chnsh/DCRNN_PyTorch
+
+A Graph WaveNet implementation for brain network analysis can be found at: https://github.com/simonvino/GraphWaveNet_brain_connectivity
 
