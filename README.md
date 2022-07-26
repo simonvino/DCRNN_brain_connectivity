@@ -18,7 +18,7 @@ This model was also used in our recent manuscript:
 
 > S. Wein , A. Schüller, A. M. Tome, W. M. Malloni, M. W. Greenlee, and E. W.
 Lang,
-[Modeling Spatio-Temporal Dynamics in Brain Networks: A Comparison of Graph Neural Network Architectures](https://arxiv.org/abs/2112.04266).
+[Forecasting brain activity based on models of spatiotemporal brain dynamics: A comparison of graph neural network architectures](https://direct.mit.edu/netn/article/6/3/665/111069/Forecasting-brain-activity-based-on-models-of), Network Neuroscience 6 (3): 665–701 (2022).
 
 
 ## Requirements
